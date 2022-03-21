@@ -9,9 +9,8 @@ const {User} = require('./models/mongoschema');
 const {Product} = require('./models/mongoschema');
 
 //mongoose connection to the database
-// mongoose.connect('mongodb+srv://poojahm:Kolimotte%233*@cluster0.65w0i.mongodb.net/Users?retryWrites=true&w=majority');
 // mongoose.Promise = global.Promise;        
-mongoose.connect('mongodb+srv://poojahm:Kolimotte%233*@cluster0.65w0i.mongodb.net/Users?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://{username}:{password}@{cluster}/{dbname}?retryWrites=true&w=majority');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection ;
 
@@ -35,7 +34,6 @@ app.use(function(err,req,res,next){
     //console.log(err);
     res.status(422).send({error: err.message});
 });
-
 
 
 app.listen(process.env.port || 7000, function(){
